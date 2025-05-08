@@ -1,0 +1,22 @@
+# Core APIs
+openai==1.12.0
+pinecone-client==3.0.0
+python-dotenv==1.0.1
+
+# LLM & RAG support
+tiktoken==0.6.0
+httpx==0.25.0
+langchain==0.1.16
+langchain-core==0.1.52
+langchain-openai==0.0.8
+langchain-pinecone==0.0.3
+pydantic<2.0
+
+# UI & Tools
+streamlit==1.32.0
+tqdm==4.66.2
+
+# Web scraping (optional but from your earlier notes)
+selenium==4.18.1
+webdriver-manager==4.0.1
+beautifulsoup4==4.12.3
