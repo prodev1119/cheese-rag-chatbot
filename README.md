@@ -1,8 +1,8 @@
-# Cheese RAG Chatbot
+# 🧀 Cheese RAG Chatbot
 
-A RAG-based chatbot that answers questions about cheese products from Kimelo's website.
+A RAG-powered chatbot that answers questions about cheese products using OpenAI GPT-4o and Pinecone Vector DB.
 
-## Features
+## 🔍 Features
 
 - Web scraping of cheese products from Kimelo's website
 - Vector database storage using Pinecone
@@ -28,48 +28,65 @@ A RAG-based chatbot that answers questions about cheese products from Kimelo's w
 
 ```
 cheese-rag-chatbot/
-│
-├── scraping/
-│   └── scraper.py           # Selenium script to scrape cheese product data
-│
-├── data/
-│   └── cheese_raw.json      # Raw scraped data
-│   └── cheese_docs.jsonl    # Cleaned, chunked documents with metadata
-│
-├── ingestion/
-│   └── ingest.py            # Converts data to embeddings and uploads to Pinecone
-│
-├── chatbot/
-│   └── rag_chain.py         # RAG pipeline: query -> retrieve -> generate
-│
-├── app/
-│   └── streamlit_app.py     # Streamlit frontend with chat UI and streaming
-│
+├── scraping/                  # Scraper script (Selenium)
+├── data/                      # Raw and processed product data
+├── ingestion/                # Embedding + Pinecone upsert logic
+├── chatbot/                  # RAG logic and retriever chain
+├── app/                      # Streamlit app UI
+├── .streamlit/config.toml    # Streamlit theme
+├── .env.example              # API key template (never commit .env)
 ├── requirements.txt
 └── README.md
 ```
 
-## Usage
+---
 
-1. Run the scraper to collect data:
-   ```bash
-   python scraping/scraper.py
-   ```
+## 🚀 Setup & Run Locally
 
-2. Ingest the data into Pinecone:
-   ```bash
-   python ingestion/ingest.py
-   ```
+### 1. Clone the repo
 
-3. Launch the Streamlit app:
-   ```bash
-   streamlit run app/streamlit_app.py
-   ```
+```bash
+git clone https://github.com/YOUR_USERNAME/cheese-rag-chatbot.git
+cd cheese-rag-chatbot
+```
 
-## Deployment
+### 2. Set up environment
 
-The app is deployed on Streamlit Cloud and can be accessed at [your-streamlit-url].
+```bash
+cp .env.example .env  # and fill in your real keys
+pip install -r requirements.txt
+```
 
-## License
+### 3. Run the chatbot
 
-MIT
+```bash
+streamlit run app/streamlit_app.py
+```
+
+---
+
+## ☁️ Deploy on Streamlit Cloud
+
+1. Push this repo to GitHub
+2. Go to [streamlit.io/cloud](https://streamlit.io/cloud)
+3. Connect your repo and set the main file to `app/streamlit_app.py`
+4. Add environment secrets (OPENAI, PINECONE keys)
+5. 🚀 Deploy
+
+---
+
+## 📦 Environment Variables
+
+Place these in a `.env` file (not tracked by Git):
+
+```env
+OPENAI_API_KEY=sk-...
+PINECONE_API_KEY=...
+PINECONE_ENVIRONMENT=your-region  # e.g. gcp-starter or us-east1-gcp
+```
+
+---
+
+## 📝 License
+
+MIT License © [John Hinton]
