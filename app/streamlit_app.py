@@ -31,6 +31,7 @@ st.markdown("""
     .product-card {
         flex: 1 1 300px;
         background-color: white;
+        color: black
         padding: 1rem;
         border-radius: 0.5rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
